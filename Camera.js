@@ -76,7 +76,7 @@ export default function Camera1() {
             )}
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.cameraAction}
+            style={[styles.cameraAction, styles.qrCodeScanner]}
             onPress={context.toggleCam}
           >
             <MaterialIcons name="qr-code" size={24} color="white" />
@@ -138,6 +138,12 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     alignItems: "center",
     marginBottom: 20,
+  },
+  qrCodeScanner: {
+    position: "absolute",
+    left: 330,
+    right: 0,
+    top: 50,
   },
   previewContainer: {
     position: "absolute",
