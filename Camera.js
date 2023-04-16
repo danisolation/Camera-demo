@@ -12,6 +12,7 @@ export default function Camera1() {
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [flashMode, setFlashMode] = useState(Camera.Constants.FlashMode.off);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
+  const [zoom, setZoom] = useState(0);
 
   const cameraRef = useRef(null);
 
@@ -63,6 +64,7 @@ export default function Camera1() {
         type={type}
         flashMode={flashMode}
         ref={cameraRef}
+        zoom={zoom}
       >
         <View style={styles.cameraActions}>
           <TouchableOpacity
@@ -76,6 +78,12 @@ export default function Camera1() {
             )}
           </TouchableOpacity>
           <TouchableOpacity
+            style={styles.cameraAction}
+            onPress={() => setZoom(Math.max(zoom - 0.1, 0))}
+          >
+            <MaterialIcons name="zoom-out" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
             style={[styles.cameraAction, styles.qrCodeScanner]}
             onPress={context.toggleCam}
           >
@@ -83,6 +91,12 @@ export default function Camera1() {
           </TouchableOpacity>
           <TouchableOpacity style={styles.cameraAction} onPress={takePhoto}>
             <MaterialIcons name="camera" size={60} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.cameraAction}
+            onPress={() => setZoom(Math.min(zoom + 0.1, 1))}
+          >
+            <MaterialIcons name="zoom-in" size={24} color="white" />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.cameraAction}
