@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { CamContext } from "./Provider";
-import * as Linking from "expo-linking";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import * as Linking from "expo-linking";
 
 export default function QRCode() {
   const context = useContext(CamContext);
